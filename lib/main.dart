@@ -1,18 +1,42 @@
-void main() {
-  print("Hello, world!\nOlá, Mundo!");
-  print("Soma = ${soma(3,5)}");
-  print(getName("Rafa", 37));
-}
-  
-int soma(int i, int j) {
-  return i + j;
-}
-//Outra maneira de definir uma função que executa apenas uma instrução:
-//int soma(int i, int j) => i + j;
+class Microphone {
+  String name;
+  String color;
+  int model;
 
-// [int age] = argumento opcional
-String getName(String name, [int age]) {
-  if(age != null)
-    return "$name is $age years old.";
-  return "$name";
+  //construtor tipicamente feito em Java.
+  // Microphone(String name, String color, int model){
+  //   this.name = name;
+  //   this.color = color;
+  //   this.model = model;
+  // }
+
+  //construtor em Dart
+  //"Syntactic sugar constructor"
+  Microphone(this.name, this.color, this.model);
+
+  //outra maneira de definir um construtor
+  //named constructor
+  Microphone.inicializar(){
+    name = "Mic inicializado";
+    color = "blue inicializado";
+    model = 0;
+  }
+
+  //getter
+  String get getName => name;
+  //setter
+  set setName(String value) => name = value;
+
+  String toString() => "$name\n$color\n$model";
+}
+
+main() {
+  print("----INÍCIO DA APLICAÇÃO----");
+  var mic = new Microphone("Mic 1", "blue", 123);
+  var mic2 = new Microphone.inicializar();
+  mic.setName = 'Nome informado através do setName';
+  print(mic.toString());
+  print(mic2.toString());
+  print("Resultado do getname: ${mic.getName}");
+  print("----FINAL DA APLICAÇÃO----");
 }
