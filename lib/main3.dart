@@ -1,3 +1,7 @@
+/* *******************************
+  The toString() Method - Override
+******************************** */
+
 class Location {
   num lat, lng;
   
